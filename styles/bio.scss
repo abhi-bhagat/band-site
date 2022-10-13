@@ -1,0 +1,46 @@
+@use "./partials/variables";
+@use "./partials/mixins";
+@use "./partials/global" as *;
+@use "./partials/fonts" as *;
+
+header {
+	background: linear-gradient(rgba(variables.$black,.5) ,rgba(variables.$black,.5)), url("../assets/images/hero-bio.jpg");
+	background-size: cover;
+	background-position: center;
+	height: 50vh;
+	max-height: 500px;
+	background-repeat: no-repeat;
+
+	display: flex;
+	align-items: center;
+	h1 {
+		color: variables.$white;
+	}
+}
+.main {
+	.main__image {
+		padding-bottom: 1rem;
+	}
+    .main__quote{
+        q{
+            font-weight: 600;
+        }
+    }
+	.vocalist {
+		padding-top: 0.5rem;
+        font-weight: 600;
+
+	}
+	.artist-info__left, .artist-info__right {
+		padding-bottom: 1rem;
+	}
+}
+
+.section {
+    background-color: variables.$alabaster;
+	.section__gallery {
+		img {
+			padding-bottom: 1rem;
+		}
+	}
+}
