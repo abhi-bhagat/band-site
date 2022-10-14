@@ -3,6 +3,9 @@
 @use "./partials/global" as *;
 @use "./partials/fonts" as *;
 
+
+
+//header
 header {
 	background: linear-gradient(rgba(variables.$black,.5) ,rgba(variables.$black,.5)), url("../assets/images/hero-bio.jpg");
 	background-size: cover;
@@ -16,7 +19,13 @@ header {
 	h1 {
 		color: variables.$white;
 	}
+	@include mixins.tablet{
+		height: 60vh;
+	}
 }
+
+
+//main
 .main {
 	.main__image {
 		padding-bottom: 1rem;
@@ -34,13 +43,31 @@ header {
 	.artist-info__left, .artist-info__right {
 		padding-bottom: 1rem;
 	}
-}
 
+	@include mixins.tablet{
+		.artist-info{
+			display: flex;
+			gap:1rem;
+		}
+	}
+}
+//section
 .section {
     background-color: variables.$alabaster;
 	.section__gallery {
 		img {
 			padding-bottom: 1rem;
+		}
+		@include mixins.tablet{
+			
+				display: flex;
+				gap: 2rem;
+				flex-wrap: wrap;
+				padding-bottom: 2rem;
+			& img{
+				width: 30%;
+				padding-bottom: 0;
+			}
 		}
 	}
 }

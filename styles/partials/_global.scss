@@ -10,6 +10,10 @@ body {
 	font-family: variables.$normal-font;
 	font-size: 0.8125rem;
 	line-height: 1.125rem;
+	@include mixins.tablet {
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
 }
 img {
 	width: 100%;
@@ -24,43 +28,93 @@ li {
 }
 .container {
 	padding: 0 1rem;
+
+	@include mixins.tablet {
+		width: 90%;
+		margin: 0 auto;
+		padding: 0;
+	}
 }
 .container--small {
 	margin: 0;
+
+	@include mixins.tablet {
+		width: 80%;
+		margin: 0 auto;
+	}
 }
 
-h1,
-h2 {
+h1 {
 	font-size: 1.5rem;
 	font-weight: bold;
 	line-height: 2rem;
 	padding-top: 1.5rem;
-	padding-bottom: 16px;
+	padding-bottom: 1rem;
+	@include mixins.tablet {
+		font-size: 3.75rem;
+		line-height: 4.25rem;
+		padding-top: 3rem;
+		padding-bottom: 2.25rem;
+	}
+}
+h2 {
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 2rem;
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
+
+	@include mixins.tablet {
+		font-size: 2.25rem;
+		line-height: 2.75rem;
+		padding-top: 3rem;
+		padding-bottom: 2.25rem;
+	}
 }
 h3 {
 	font-size: 0.875rem;
 	font-weight: 600;
 	line-height: 1.375rem;
 	padding-top: 1.5rem;
-	padding-bottom: 16px;
+	padding-bottom: 1rem;
+	@include mixins.tablet {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		padding-top: 3rem;
+		padding-bottom: 2.25rem;
+	}
 }
 
-//nav
+//navbar=================================================
 nav {
 	background-color: variables.$black;
 	padding-top: 1rem;
 	text-align: center;
+	@include mixins.tablet {
+		.nav__contents {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 4rem;
+		}
+	}
+
 	//logo
 	.nav__logo {
 		background-color: variables.$black;
 		max-height: 1.25rem;
 		max-width: 7.5rem;
-		margin: 0 auto;
+		margin: 0.5rem auto;
 		text-align: center;
 		padding: 1rem 0;
+		@include mixins.tablet {
+			padding: 0;
+			text-align: left;
+			margin: 0;
+		}
 	}
 	.active {
-		border-bottom: 2px solid variables.$white;
+		border-bottom: 3px solid variables.$white;
 		a {
 			color: variables.$white;
 			font-weight: bold;
@@ -82,10 +136,14 @@ nav {
 			padding: 1rem 0;
 		}
 		.menu__link:hover {
-			border-bottom: 2px solid variables.$white;
+			border-bottom: 3px solid variables.$white;
 			a {
 				color: variables.$white;
 			}
+		}
+
+		@include mixins.tablet {
+			gap: 4rem;
 		}
 	}
 }
@@ -94,20 +152,72 @@ nav {
 footer {
 	background-color: variables.$black;
 	color: variables.$white;
-	.social{
+
+	.footer__content {
 		display: flex;
 		flex-direction: column;
 	}
-	.social__icons-set{
+	.social {
 		display: flex;
-		justify-content: flex-start;
-		.social__icon{
-			margin: 1rem 2rem 1rem 0;
-			img{
-				width: 2rem;
-				height: 2rem;
+		flex-direction: column;
+		.social__icons-set {
+			display: flex;
+			justify-content: flex-start;
+			.social__icon {
+				margin: 1rem 2rem 1rem 0;
+				img {
+					width: 2rem;
+					height: 2rem;
+				}
 			}
+		}
+
+		@include mixins.tablet {
+			flex-direction: row;
+			align-items: baseline;
+			gap: 3rem;
 		}
 	}
 
+	// ==logo--
+	.footer__logo {
+		background-color: variables.$black;
+		max-height: 1.25rem;
+		max-width: 7.5rem;
+		margin-top: 3rem;
+		order: 1;
+		@include mixins.tablet {
+			order: unset;
+			margin-top: 0;
+		}
+	}
+
+	// === contact====
+	.contact {
+		margin-top: 1rem;
+		.contact__name-group,
+		.contact__address-group,
+		.contact__email {
+			margin-bottom: 1rem;
+		}
+		.contact__name-group {
+			font-weight: 600;
+		}
+		.contact__email {
+			a {
+				color: variables.$white;
+			}
+		}
+		@include mixins.tablet {
+			display: flex;
+			gap:4rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	//copyright
+	.copyright {
+		order: 2;
+		margin: 1rem 0;
+	}
 }

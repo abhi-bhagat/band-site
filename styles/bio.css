@@ -24,6 +24,12 @@ body {
   font-size: 0.8125rem;
   line-height: 1.125rem;
 }
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
 
 img {
   width: 100%;
@@ -42,18 +48,54 @@ li {
 .container {
   padding: 0 1rem;
 }
+@media screen and (min-width: 768px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
 
 .container--small {
   margin: 0;
 }
+@media screen and (min-width: 768px) {
+  .container--small {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
-h1,
-h2 {
+h1 {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 2rem;
   padding-top: 1.5rem;
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
 }
 
 h3 {
@@ -61,7 +103,15 @@ h3 {
   font-weight: 600;
   line-height: 1.375rem;
   padding-top: 1.5rem;
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 2.25rem;
+  }
 }
 
 nav {
@@ -69,16 +119,31 @@ nav {
   padding-top: 1rem;
   text-align: center;
 }
+@media screen and (min-width: 768px) {
+  nav .nav__contents {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+  }
+}
 nav .nav__logo {
   background-color: #323232;
   max-height: 1.25rem;
   max-width: 7.5rem;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   text-align: center;
   padding: 1rem 0;
 }
+@media screen and (min-width: 768px) {
+  nav .nav__logo {
+    padding: 0;
+    text-align: left;
+    margin: 0;
+  }
+}
 nav .active {
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #fff;
 }
 nav .active a {
   color: #fff;
@@ -98,30 +163,84 @@ nav .nav__menu .menu__link {
   padding: 1rem 0;
 }
 nav .nav__menu .menu__link:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #fff;
 }
 nav .nav__menu .menu__link:hover a {
   color: #fff;
+}
+@media screen and (min-width: 768px) {
+  nav .nav__menu {
+    gap: 4rem;
+  }
 }
 
 footer {
   background-color: #323232;
   color: #fff;
 }
+footer .footer__content {
+  display: flex;
+  flex-direction: column;
+}
 footer .social {
   display: flex;
   flex-direction: column;
 }
-footer .social__icons-set {
+footer .social .social__icons-set {
   display: flex;
   justify-content: flex-start;
 }
-footer .social__icons-set .social__icon {
+footer .social .social__icons-set .social__icon {
   margin: 1rem 2rem 1rem 0;
 }
-footer .social__icons-set .social__icon img {
+footer .social .social__icons-set .social__icon img {
   width: 2rem;
   height: 2rem;
+}
+@media screen and (min-width: 768px) {
+  footer .social {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 3rem;
+  }
+}
+footer .footer__logo {
+  background-color: #323232;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+  margin-top: 3rem;
+  order: 1;
+}
+@media screen and (min-width: 768px) {
+  footer .footer__logo {
+    order: unset;
+    margin-top: 0;
+  }
+}
+footer .contact {
+  margin-top: 1rem;
+}
+footer .contact .contact__name-group,
+footer .contact .contact__address-group,
+footer .contact .contact__email {
+  margin-bottom: 1rem;
+}
+footer .contact .contact__name-group {
+  font-weight: 600;
+}
+footer .contact .contact__email a {
+  color: #fff;
+}
+@media screen and (min-width: 768px) {
+  footer .contact {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 1rem;
+  }
+}
+footer .copyright {
+  order: 2;
+  margin: 1rem 0;
 }
 
 header {
@@ -137,6 +256,11 @@ header {
 header h1 {
   color: #fff;
 }
+@media screen and (min-width: 768px) {
+  header {
+    height: 60vh;
+  }
+}
 
 .main .main__image {
   padding-bottom: 1rem;
@@ -151,10 +275,28 @@ header h1 {
 .main .artist-info__left, .main .artist-info__right {
   padding-bottom: 1rem;
 }
+@media screen and (min-width: 768px) {
+  .main .artist-info {
+    display: flex;
+    gap: 1rem;
+  }
+}
 
 .section {
   background-color: #fafafa;
 }
 .section .section__gallery img {
   padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .section .section__gallery {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+  }
+  .section .section__gallery img {
+    width: 30%;
+    padding-bottom: 0;
+  }
 }/*# sourceMappingURL=bio.css.map */
