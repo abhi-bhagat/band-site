@@ -156,6 +156,11 @@ footer {
 	.footer__content {
 		display: flex;
 		flex-direction: column;
+		@include mixins.tablet {
+			flex-direction: row;
+			flex-wrap: wrap;
+			// background-color: red;
+		}
 	}
 	.social {
 		display: flex;
@@ -174,8 +179,13 @@ footer {
 
 		@include mixins.tablet {
 			flex-direction: row;
+			flex-basis: 85%;
 			align-items: baseline;
 			gap: 3rem;
+		}
+		@include mixins.desktop{
+			flex-basis: 90%;
+
 		}
 	}
 
@@ -188,7 +198,8 @@ footer {
 		order: 1;
 		@include mixins.tablet {
 			order: unset;
-			margin-top: 0;
+			margin: 4rem 0;
+			flex-basis: 15%;
 		}
 	}
 
@@ -210,8 +221,15 @@ footer {
 		}
 		@include mixins.tablet {
 			display: flex;
-			gap:4rem;
 			margin-bottom: 1rem;
+			justify-content: space-between;
+			flex-basis: 100%;
+
+		}
+		@include mixins.desktop {
+			justify-content: flex-start;
+			gap: 4rem;
+
 		}
 	}
 
@@ -219,5 +237,6 @@ footer {
 	.copyright {
 		order: 2;
 		margin: 1rem 0;
+		padding-bottom: 1rem;
 	}
 }

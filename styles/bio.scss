@@ -48,6 +48,25 @@ header {
 		.artist-info{
 			display: flex;
 			gap:1rem;
+			padding-bottom: 1rem;
+
+		}
+		q{
+			font-size: 1.35rem;
+
+		}
+		.quote-para{
+			margin-top: 1rem;
+
+		}
+		.vocalist{
+			font-size: 1rem;
+		}
+	}
+	@include mixins.desktop{
+		.quote-para{
+			width: 65%;
+			line-height: 1.5rem;
 		}
 	}
 }
@@ -61,13 +80,16 @@ header {
 		@include mixins.tablet{
 			
 				display: flex;
-				gap: 2rem;
+				// gap: 1rem;
 				flex-wrap: wrap;
+				justify-content: space-between;
 				padding-bottom: 2rem;
 			& img{
-				width: 30%;
+				width: 31.333%;
 				padding-bottom: 0;
+				margin: 1%;
 			}
 		}
+		
 	}
 }
