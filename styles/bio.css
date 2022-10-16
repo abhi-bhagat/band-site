@@ -17,6 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -47,6 +48,7 @@ li {
 
 .container {
   padding: 0 1rem;
+  max-width: 1920px;
 }
 @media screen and (min-width: 768px) {
   .container {
@@ -336,5 +338,14 @@ header h1 {
     width: 31.333%;
     padding-bottom: 0;
     margin: 1%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section .section__gallery img {
+    filter: grayscale(0.8);
+    transition: 0.5s;
+  }
+  .section .section__gallery :hover {
+    filter: grayscale(0);
   }
 }/*# sourceMappingURL=bio.css.map */

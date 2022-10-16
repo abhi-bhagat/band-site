@@ -90,6 +90,15 @@ header {
 				margin: 1%;
 			}
 		}
+		@include mixins.desktop{
+			img{
+				filter: grayscale(.8);
+				transition: .5s;
+			}
+			& :hover{
+				filter: grayscale(0);
+			}
+		}
 		
 	}
 }

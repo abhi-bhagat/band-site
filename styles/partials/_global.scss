@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 body {
 	font-family: variables.$normal-font;
@@ -28,6 +29,7 @@ li {
 }
 .container {
 	padding: 0 1rem;
+	max-width: 1920px;
 
 	@include mixins.tablet {
 		width: 90%;
