@@ -81,6 +81,7 @@ h1 {
     line-height: 4.25rem;
     padding-top: 3rem;
     padding-bottom: 2.25rem;
+    font-weight: 600;
   }
 }
 
@@ -160,12 +161,19 @@ nav .inactive a {
 nav .nav__menu {
   display: flex;
 }
+nav .nav__menu:hover .menu__link {
+  opacity: 0.2;
+}
 nav .nav__menu .menu__link {
   width: 50%;
   padding: 1rem 0;
+  transition: 0.25s;
 }
 nav .nav__menu .menu__link:hover {
   border-bottom: 3px solid #fff;
+  transform: scale(0.9);
+  opacity: 1;
+  transition: 0.25s;
 }
 nav .nav__menu .menu__link:hover a {
   color: #fff;
