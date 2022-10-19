@@ -46,6 +46,19 @@ li {
 	}
 }
 
+.container--xs {
+	margin: 0;
+
+	@include mixins.tablet {
+		width: 80%;
+		margin: 0 auto;
+	}
+	@include mixins.desktop {
+		width: 45%;
+		margin: 0 auto;
+	}
+}
+
 h1 {
 	font-size: 1.5rem;
 	font-weight: bold;
@@ -152,8 +165,6 @@ nav {
 					color: variables.$white;
 				}
 			}
-
-		
 		}
 
 		@include mixins.tablet {

@@ -3,11 +3,13 @@
 @use "./partials/global" as *;
 @use "./partials/fonts" as *;
 
-
-
 //header
 header {
-	background: linear-gradient(rgba(variables.$black,.5) ,rgba(variables.$black,.5)), url("../assets/images/hero-bio.jpg");
+	background: linear-gradient(
+			rgba(variables.$black, 0.5),
+			rgba(variables.$black, 0.5)
+		),
+		url("../assets/images/hero-bio.jpg");
 	background-size: cover;
 	background-position: center;
 	height: 50vh;
@@ -19,52 +21,48 @@ header {
 	h1 {
 		color: variables.$white;
 	}
-	@include mixins.tablet{
+	@include mixins.tablet {
 		height: 60vh;
 	}
 }
-
 
 //main
 .main {
 	.main__image {
 		padding-bottom: 1rem;
 	}
-    .main__quote{
-        q{
-            font-weight: 600;
-        }
-    }
+	.main__quote {
+		q {
+			font-weight: 600;
+		}
+	}
 	.vocalist {
 		padding-top: 0.5rem;
-        font-weight: 600;
-
+		font-weight: 600;
 	}
-	.artist-info__left, .artist-info__right {
+	.artist-info__left,
+	.artist-info__right {
 		padding-bottom: 1rem;
 	}
 
-	@include mixins.tablet{
-		.artist-info{
+	@include mixins.tablet {
+		.artist-info {
 			display: flex;
-			gap:1rem;
+			gap: 1rem;
 			padding-bottom: 1rem;
-
 		}
-		q{
+		q {
 			font-size: 1.35rem;
-
 		}
-		.quote-para{
+		.quote-para {
 			margin-top: 1rem;
-
 		}
-		.vocalist{
+		.vocalist {
 			font-size: 1rem;
 		}
 	}
-	@include mixins.desktop{
-		.quote-para{
+	@include mixins.desktop {
+		.quote-para {
 			width: 65%;
 			line-height: 1.5rem;
 		}
@@ -72,33 +70,115 @@ header {
 }
 //section
 .section {
-    background-color: variables.$alabaster;
+	background-color: variables.$alabaster;
 	.section__gallery {
 		img {
 			padding-bottom: 1rem;
 		}
-		@include mixins.tablet{
-			
-				display: flex;
-				// gap: 1rem;
-				flex-wrap: wrap;
-				justify-content: space-between;
-				padding-bottom: 2rem;
-			& img{
+		@include mixins.tablet {
+			display: flex;
+			// gap: 1rem;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding-bottom: 2rem;
+			& img {
 				width: 31.333%;
 				padding-bottom: 0;
 				margin: 1%;
 			}
 		}
-		@include mixins.desktop{
-			img{
-				filter: grayscale(.8);
-				transition: .5s;
+		@include mixins.desktop {
+			img {
+				filter: grayscale(0.8);
+				transition: 0.5s;
 			}
-			& :hover{
+			& :hover {
 				filter: grayscale(0);
 			}
 		}
-		
+	}
+}
+
+// COMMENT SECTION
+
+.comment-section {
+	&__divider {
+		height: 1px;
+		width: 100%;
+		border: 1px solid variables.$mercury;
+	}
+	
+}
+
+//avatar
+.avatar {
+	border-radius: 50%;
+	max-width: 2.25rem;
+	max-height: 2.25rem;
+	width: 2.25rem;
+	height: 2.25rem;
+}
+
+//form
+
+.form {
+	display: flex;
+	padding-bottom: 1rem;
+
+	&__container {
+		width: 85%;
+	}
+	&__image {
+		width: 15%;
+		padding-top: 2.25rem;
+		display: flex;
+		justify-content: center;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+	&__input,
+	&__textArea {
+		min-height: 2.25rem;
+		border-radius: 0.25rem;
+		padding: 0.75rem;
+		background-color: variables.$alabaster;
+		border: 1px solid variables.$mercury;
+
+		@include mixins.tablet {
+			min-height: 3rem;
+			padding: 16px;
+		}
+	}
+	&__input:focus,
+	&__textArea:focus {
+		border: 1px solid variables.$black;
+		outline: none;
+	}
+	&__label {
+		padding-bottom: 4px;
+		margin-top: 1rem;
+		color: variables.$silver;
+		font-weight: 400;
+	}
+}
+
+// /button
+.btn {
+	margin-top: 1rem;
+	height: 2.5rem;
+	border-radius: 0.25rem;
+	background-color: variables.$black;
+	color: variables.$white;
+
+	&:hover {
+		background-color: variables.$darkBlack;
+		cursor: pointer;
+	}
+	@include mixins.tablet {
+		min-width: 9.375rem;
+		padding: 0 2rem;
+		margin: 1rem 0 1rem auto;
 	}
 }
