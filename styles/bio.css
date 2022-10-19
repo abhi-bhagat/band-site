@@ -379,6 +379,7 @@ header h1 {
   height: 1px;
   width: 100%;
   border: 1px solid #e1e1e1;
+  margin-top: 1rem;
 }
 
 .avatar {
@@ -412,6 +413,7 @@ header h1 {
   padding: 0.75rem;
   background-color: #fafafa;
   border: 1px solid #e1e1e1;
+  font-family: inherit;
 }
 @media screen and (min-width: 768px) {
   .form__input, .form__textArea {
@@ -446,5 +448,63 @@ header h1 {
     min-width: 9.375rem;
     padding: 0 2rem;
     margin: 1rem 0 1rem auto;
+  }
+}
+
+.comments {
+  padding: 1rem 0;
+}
+.comments__card {
+  display: flex;
+  padding: 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .comments__card {
+    padding: 1rem 0;
+  }
+}
+.comments__img {
+  max-height: 2.25rem;
+  max-width: 2.25rem;
+  background: #e1e1e1;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+.comments__image-holder {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+.comments__heading {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+.comments__body {
+  width: 85%;
+}
+.comments__name {
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .comments__name {
+    line-height: 1.375rem;
+  }
+}
+.comments__date {
+  color: #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .comments__date {
+    line-height: 1.375rem;
+  }
+}
+.comments__message {
+  line-height: 1.125rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__message {
+    line-height: 1.375rem;
   }
 }/*# sourceMappingURL=bio.css.map */

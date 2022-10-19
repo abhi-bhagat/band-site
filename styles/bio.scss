@@ -106,8 +106,8 @@ header {
 		height: 1px;
 		width: 100%;
 		border: 1px solid variables.$mercury;
+		margin-top: 1rem;
 	}
-	
 }
 
 //avatar
@@ -145,6 +145,7 @@ header {
 		padding: 0.75rem;
 		background-color: variables.$alabaster;
 		border: 1px solid variables.$mercury;
+		font-family: inherit;
 
 		@include mixins.tablet {
 			min-height: 3rem;
@@ -180,5 +181,63 @@ header {
 		min-width: 9.375rem;
 		padding: 0 2rem;
 		margin: 1rem 0 1rem auto;
+	}
+}
+
+//comments
+
+.comments {
+	padding: 1rem 0;
+
+	&__card{
+	display: flex;
+	padding: 1rem 0;
+
+	@include mixins.tablet{
+		padding: 1rem 0;
+	}
+
+	}
+
+	&__img {
+		max-height: 2.25rem;
+		max-width: 2.25rem;
+		background: variables.$mercury;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 50%;
+	}
+
+	&__image-holder {
+		width: 15%;
+		display: flex;
+		justify-content: center;
+	}
+	&__heading{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: .5rem;
+	}
+	&__body {
+		width: 85%;
+	}
+
+	&__name{
+		font-weight: 600;
+		@include mixins.tablet{
+			line-height: 1.375rem;
+		}
+	}
+	&__date{
+		color: variables.$silver;
+		@include mixins.tablet{
+			line-height: 1.375rem;
+		}
+	}
+	&__message{
+		line-height: 1.125rem;
+		@include mixins.tablet{
+			line-height: 1.375rem;
+		}
 	}
 }
