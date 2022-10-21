@@ -300,7 +300,8 @@ footer .copyright {
   display: flex;
   align-items: center;
 }
-.header h1, .header h2 {
+.header h1,
+.header h2 {
   color: #fff;
 }
 @media screen and (min-width: 768px) {
@@ -446,6 +447,7 @@ footer .copyright {
   border-radius: 0.25rem;
   background-color: #323232;
   color: #fff;
+  border: none;
 }
 .btn:hover {
   background-color: #000;

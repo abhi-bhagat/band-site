@@ -434,6 +434,7 @@ footer .copyright {
   border-radius: 0.25rem;
   background-color: #323232;
   color: #fff;
+  border: none;
 }
 .shows__btn:hover {
   background-color: #000;

@@ -50,14 +50,12 @@ const appendGrandParent = (ele) => {
 showsList.forEach((show) => {
 	const card = produceElement("div", "shows__card", "card__holder");
 	card.addEventListener("click", (e) => {
-		console.log(e);
-		// (e.path).forEach((path)=>{console.log(path[0])});
 		const darBg = document.querySelector(".dark-background");
-		console.log(darBg);
-		if (darBg!==null) {
+
+		if (darBg !== null) {
 			darBg.classList.remove("dark-background");
 		}
-		console.log(e.target);
+
 		e.currentTarget.classList.add("dark-background");
 	});
 

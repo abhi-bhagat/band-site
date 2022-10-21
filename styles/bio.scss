@@ -18,7 +18,8 @@
 
 	display: flex;
 	align-items: center;
-	h1 , h2{
+	h1,
+	h2 {
 		color: variables.$white;
 	}
 	@include mixins.tablet {
@@ -179,6 +180,7 @@
 	border-radius: 0.25rem;
 	background-color: variables.$black;
 	color: variables.$white;
+	border: none;
 
 	&:hover {
 		background-color: variables.$darkBlack;
