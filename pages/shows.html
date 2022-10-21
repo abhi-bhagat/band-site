@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../styles/shows.css" />
+		<!-- <link rel="stylesheet" href="../styles/bio.css" /> -->
 
-    <title>Shows-Bandsite</title>
-</head>
-<body>
-    		<!-- navigation bar -->
+		<title>Shows-Bandsite</title>
+	</head>
+	<body>
+		<!-- navigation bar -->
 		<nav>
 			<div class="container nav__contents">
 				<div class="nav__logo">
@@ -19,34 +20,67 @@
 				</div>
 				<div>
 					<ul class="nav__menu">
-						<li class="menu__link inactive"><a href="../index.html">Biography</a></li>
+						<li class="menu__link inactive">
+							<a href="../index.html">Biography</a>
+						</li>
 						<li class="menu__link active"><a href="./shows.html">Shows</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-<!-- header  -->
+		<!-- header  -->
 
-<header class="header header--shows">
-    <div class="container hero">
-        <div class="hero__title">
-            <h2 class="header__subtitle"> Beautiful Beasts Album</h2>
-            <h1 class="header__title">Queen of Yellow x  <br> For the Stings</h1>
+		<header class="header header-shows">
+			<div class="container hero">
+				<div class="hero__title">
+					<h2 class="header__subtitle">Beautiful Beasts Album</h2>
+					<h1 class="header__title">
+						Queen of Yellow x <br />
+						For the Stings
+					</h1>
+				</div>
+				<div class="hero__song">
+					<iframe
+                    width="100%"
+                    height="166"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/15830661&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+					></iframe>
+				</div>
+			</div>
+		</header>
 
-        </div>
-        <div class="hero__song">
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/15830661&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-        </div>
-    </div>
-</header>
+		<!-- shows section -->
 
-
-
-
-
-        <!-- footer  -->
-        <footer>
+		<section class="shows">
+			<div class="container shows__container">
+				<h2 class="shows__heading">Shows</h2>
+				<div class="shows__list">
+					<div class="shows__title--large">
+						<p class="date--large title--large">DATE</p>
+						<p class="venue--large title--large">VENUE</p>
+						<p class="location--large title--large">LOCATION</p>
+						<p class="button--large title--large">BUTTON</p>
+					</div>
+					<div class="shows__cards">
+						<!-- <div class="shows__card">
+                        <p class="shows__title date--small">DATE</p>
+						<p class="shows__value shows__date">Mon Sept 06 2021</p>
+						<p class="shows__title venue--small">VENUE</p>
+						<p class="shows__value shows__venue">Ronald Lane</p>
+						<p class="shows__title location--small">LOCATION</p>
+						<p class="shows__value location">San Francisco, CA</p>
+						<button class="btn shows__btn">BUY TICKETS</button>
+                        </div> -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- footer  -->
+		<footer>
 			<div class="container footer__content">
 				<div class="social">
 					<h2>Get in Touch</h2>
@@ -124,5 +158,5 @@
 			</div>
 		</footer>
 		<script src="../scripts/build-shows-page.js"></script>
-</body>
+	</body>
 </html>

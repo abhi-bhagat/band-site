@@ -4,7 +4,7 @@
 @use "./partials/fonts" as *;
 
 .header {
-	&--shows {
+	&-shows{
 		background: linear-gradient(
 				rgba(variables.$black, 0.5),
 				rgba(variables.$black, 0.5)
@@ -12,15 +12,19 @@
 			url("../assets/images/hero-shows.jpg");
 		background-size: cover;
 		background-position: center;
-		height: 50vh;
+		height: 70vh;
 		max-height: 600px;
 		background-repeat: no-repeat;
 		@include mixins.tablet {
-			height: 60vh;
+			height: 80vh;
+		max-height: 800px;
+
 		}
-        @include mixins.desktop {
-			height: 90vh;
-            display: flex;
+		@include mixins.desktop {
+			height: 80vh;
+		    max-height: 800px;
+
+			display: flex;
 		}
 	}
 
@@ -46,7 +50,6 @@
 			line-height: 2.75rem;
 			padding-bottom: 0;
 		}
-	
 	}
 }
 
@@ -63,6 +66,123 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-        gap: 4rem;
+		gap: 4rem;
 	}
+}
+
+// shows section
+
+.shows {
+	padding: 0.5rem 0;
+	@include mixins.desktop {
+		padding-top: 3rem;
+	}
+	&__container {
+		@include mixins.desktop {
+			display: flex;
+			// width: 100%;
+		}
+	}
+	&__heading {
+        @include mixins.tablet{
+            padding-left: 1rem;
+
+        }
+		@include mixins.desktop {
+			width: 20%;
+			padding-top: 0;
+		}
+	}
+	&__list {
+		@include mixins.desktop {
+			width: 80%;
+			// padding-top: 3rem;
+		}
+	}
+	&__title--large {
+		display: none;
+		@include mixins.tablet {
+			display: flex;
+			padding-top: 0.75rem;
+            padding: 0 1rem;
+		}
+		.title--large {
+			width: 25%;
+			color: variables.$silver;
+			font-weight: 600;
+		}
+		.button--large {
+			visibility: hidden;
+		}
+	}
+	&__cards {
+		width: 100%;
+		padding: 0.5rem 0;
+		@include mixins.tablet {
+			display: flex;
+            flex-direction: column;
+			justify-content: center;
+		}
+	}
+    &__card{
+        padding: 1rem 1rem;
+
+        @include mixins.tablet {
+			display: flex;
+			align-items: center;
+		border-bottom: 1px solid variables.$mercury;
+        padding: 1.5rem 1rem;
+            
+		}
+
+        &:hover{
+            background-color: variables.$alabaster;
+        }
+        
+    }
+	&__btn {
+		width: 100%;
+        margin: 1rem 0;
+        height: 2.5rem;
+        border-radius: 0.25rem;
+        background-color: variables.$black;
+        color: variables.$white;
+    
+        &:hover {
+            background-color: variables.$darkBlack;
+            cursor: pointer;
+        }
+        @include mixins.tablet {
+            // min-width: 9.375rem;
+            padding: 0 2rem;
+            margin: 1rem 0 1rem auto;
+            width: 23%;
+        }
+		
+	}
+	&__title {
+		color: variables.$silver;
+		font-weight: 600;
+		line-height: 1.25rem;
+		font-size: 0.75rem;
+		padding-bottom: 0.25rem;
+		@include mixins.tablet {
+			display: none;
+		}
+	}
+	&__value {
+		padding-bottom: 0.75rem;
+		@include mixins.tablet {
+			width: 25%;
+			padding-bottom: 0;
+		}
+	}
+	&__date {
+		font-weight: 600;
+	}
+}
+
+
+.dark-background{
+    background-color: variables.$mercury;
 }
