@@ -1,0 +1,68 @@
+@use "./partials/variables";
+@use "./partials/mixins";
+@use "./partials/global" as *;
+@use "./partials/fonts" as *;
+
+.header {
+	&--shows {
+		background: linear-gradient(
+				rgba(variables.$black, 0.5),
+				rgba(variables.$black, 0.5)
+			),
+			url("../assets/images/hero-shows.jpg");
+		background-size: cover;
+		background-position: center;
+		height: 50vh;
+		max-height: 600px;
+		background-repeat: no-repeat;
+		@include mixins.tablet {
+			height: 60vh;
+		}
+        @include mixins.desktop {
+			height: 90vh;
+            display: flex;
+		}
+	}
+
+	&__title,
+	&__subtitle {
+		color: variables.$white;
+	}
+	&__title {
+		word-spacing: 0.5rem;
+		// font-weight: 600;
+		@include mixins.tablet {
+			padding-top: 1.5rem;
+			padding-bottom: 1rem;
+		}
+	}
+	&__subtitle {
+		font-weight: 400;
+		font-size: 1.25rem;
+		line-height: 1.375rem;
+		padding-top: 2.5rem;
+		@include mixins.tablet {
+			font-size: 2.25rem;
+			line-height: 2.75rem;
+			padding-bottom: 0;
+		}
+	
+	}
+}
+
+.hero {
+	&__song {
+		margin-top: 0.75rem;
+		@include mixins.tablet {
+			width: 60%;
+			max-width: 500px;
+		}
+	}
+
+	@include mixins.desktop {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        gap: 4rem;
+	}
+}

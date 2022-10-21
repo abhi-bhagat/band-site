@@ -91,16 +91,23 @@ const displayComment = (myObj) => {
 	appendElements();
 };
 
-const generateComments=()=>{
-    for (let i = 0; i < commentData.length; i++) {
-        displayComment(commentData[i]);
-    }
-}
+const generateComments = () => {
+	for (let i = 0; i < commentData.length; i++) {
+		displayComment(commentData[i]);
+	}
+};
 generateComments();
-//form handle
 
+// ==========================
+//form handle
+// ============================
 const getDate = () => {
 	return new Date().toLocaleDateString("en-US");
+};
+const emptyInputs = () => {
+	form.name.value = "";
+	form.comment.value = "";
+	parentElement.innerHTML = "";
 };
 
 const form = document.querySelector(".form__body");
@@ -115,9 +122,6 @@ form.addEventListener("submit", (event) => {
 		date: getDate(),
 	};
 	commentData.unshift(message);
-    event.target.name.value='';
-    event.target.comment.value='';
-    parentElement.innerHTML='';
-    generateComments();
-   
+	emptyInputs();
+	generateComments();
 });

@@ -4,7 +4,7 @@
 @use "./partials/fonts" as *;
 
 //header
-header {
+.header {
 	background: linear-gradient(
 			rgba(variables.$black, 0.5),
 			rgba(variables.$black, 0.5)
@@ -18,7 +18,7 @@ header {
 
 	display: flex;
 	align-items: center;
-	h1 {
+	h1 , h2{
 		color: variables.$white;
 	}
 	@include mixins.tablet {
@@ -117,7 +117,7 @@ header {
 	max-height: 2.25rem;
 	width: 2.25rem;
 	height: 2.25rem;
-	@include mixins.tablet{
+	@include mixins.tablet {
 		width: 3rem;
 		height: 3rem;
 
@@ -196,14 +196,13 @@ header {
 .comments {
 	padding: 1rem 0;
 
-	&__card{
-	display: flex;
-	padding: 1rem 0;
-
-	@include mixins.tablet{
+	&__card {
+		display: flex;
 		padding: 1rem 0;
-	}
 
+		@include mixins.tablet {
+			padding: 1rem 0;
+		}
 	}
 
 	&__img {
@@ -213,10 +212,10 @@ header {
 		width: 2.25rem;
 		height: 2.25rem;
 		border-radius: 50%;
-		@include mixins.tablet{
+		@include mixins.tablet {
 			width: 3rem;
 			height: 3rem;
-	
+
 			max-width: 3rem;
 			max-height: 3rem;
 		}
@@ -227,30 +226,30 @@ header {
 		display: flex;
 		justify-content: center;
 	}
-	&__heading{
+	&__heading {
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: .5rem;
+		padding-bottom: 0.5rem;
 	}
 	&__body {
 		width: 85%;
 	}
 
-	&__name{
+	&__name {
 		font-weight: 600;
-		@include mixins.tablet{
+		@include mixins.tablet {
 			line-height: 1.375rem;
 		}
 	}
-	&__date{
+	&__date {
 		color: variables.$silver;
-		@include mixins.tablet{
+		@include mixins.tablet {
 			line-height: 1.375rem;
 		}
 	}
-	&__message{
+	&__message {
 		line-height: 1.125rem;
-		@include mixins.tablet{
+		@include mixins.tablet {
 			line-height: 1.375rem;
 		}
 	}
