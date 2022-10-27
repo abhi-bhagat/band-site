@@ -1,26 +1,33 @@
-const API_KEY = "dc097925-218b-4626-9eb2-dfa7f49487f0";
-const URL = "https://project-1-api.herokuapp.com/";
+const API_KEY = "?api_key=dc097925-218b-4626-9eb2-dfa7f49487f0";
+const commentsURL = "https://project-1-api.herokuapp.com/comments";
 
-const commentData = [
-	{
-		name: "Connor Walton",
-		commentText:
-			"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-		date: "02/17/2021",
-	},
-	{
-		name: "Emilie Beach",
-		commentText:
-			"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-		date: "01/09/2021",
-	},
-	{
-		name: "Miles Acosta",
-		commentText:
-			"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-		date: "12/20/2020",
-	},
-];
+// const commentData = [
+// 	// {
+// 	// 	name: "Connor Walton",
+// 	// 	commentText:
+// 	// 		"This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+// 	// 	date: "02/17/2021",
+// 	// },
+// 	// {
+// 	// 	name: "Emilie Beach",
+// 	// 	commentText:
+// 	// 		"I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+// 	// 	date: "01/09/2021",
+// 	// },
+// 	// {
+// 	// 	name: "Miles Acosta",
+// 	// 	commentText:
+// 	// 		"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+// 	// 	date: "12/20/2020",
+// 	// },
+// ];
+
+// getting date in human readable form
+const getDate = (botDate) => {
+	return new Date(botDate).toLocaleDateString("en-US");
+};
+
+//function getComments(){}
 
 let commentsCard;
 let commentsImageHolder;
@@ -32,6 +39,7 @@ let commentsDate;
 let commentsMessage;
 let commentsDivider;
 
+let commentData = [];
 const parentElement = document.querySelector(".comments");
 
 // create dynamic elements for comment section
@@ -85,28 +93,62 @@ const appendElements = () => {
 	commentsHeading.appendChild(commentsDate);
 };
 
+//displaying comments
 const displayComment = (myObj) => {
 	createElements();
 	assignClasses();
 	commentsName.innerText = myObj.name;
-	commentsDate.innerText = myObj.date;
-	commentsMessage.innerText = myObj.commentText;
+	const longDate = myObj.timestamp;
+	// console.log(new Date(longDate));
+	commentsDate.innerText = getDate(longDate);
+	commentsMessage.innerText = myObj.comment;
 	appendElements();
 };
 
-const generateComments = () => {
-	for (let i = 0; i < commentData.length; i++) {
-		displayComment(commentData[i]);
-	}
-};
-generateComments();
+//fetching data using axios
+function fetchComments() {
+	axios
+		.get(`${commentsURL}${API_KEY}`)
+		.then((response) => {
+			// console.log(response.data);
+			commentData = response.data;
+			commentData.sort((a,b)=>{a.timestamp - b.timestamp}).reverse();
+			console.log(commentData);
+			// console.log(commentData);
+
+			const generateComments = () => {
+				for (let i = 0; i < commentData.length; i++) {
+					displayComment(commentData[i]);
+				}
+			};
+			generateComments();
+		})
+		.catch((error) => {
+			console.log(`Fetching comments failed!  Reason -------> ${error}`);
+		});
+}
+
+fetchComments();
+
+//posting data using axios
+function postComments(message) {
+	axios
+		.post(`${commentsURL}${API_KEY}` ,message)
+		.then((res) => {
+			console.log(`POST method executed`,res);
+			emptyInputs();
+			fetchComments();
+		})
+		.catch((error)=>{
+			console.log(`POST request failed because of --------=> ${error}`);
+		});
+}
+
 
 // ==========================
 //form handle
 // ============================
-const getDate = () => {
-	return new Date().toLocaleDateString("en-US");
-};
+
 const emptyInputs = () => {
 	form.name.value = "";
 	form.comment.value = "";
@@ -114,17 +156,16 @@ const emptyInputs = () => {
 };
 
 const form = document.querySelector(".form__body");
-console.log(form);
 
 form.addEventListener("submit", (event) => {
 	event.preventDefault();
 
 	const message = {
 		name: event.target.name.value,
-		commentText: event.target.comment.value,
-		date: getDate(),
+		comment: event.target.comment.value,
+		// date: getDate(),
 	};
-	commentData.unshift(message);
-	emptyInputs();
-	generateComments();
+
+	//posting this in database
+	postComments(message);
 });
