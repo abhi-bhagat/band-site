@@ -1,3 +1,5 @@
+const API_KEY = "dc097925-218b-4626-9eb2-dfa7f49487f0";
+const URL = "https://project-1-api.herokuapp.com/";
 const showsList = [
 	{
 		date: "Mon Sept 06 2021",
