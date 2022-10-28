@@ -525,4 +525,22 @@ footer .copyright {
   .comments__message {
     line-height: 1.375rem;
   }
+}
+.comments__likesection {
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.comments__like {
+  border-radius: 4px;
+  padding: 0.25rem 1rem;
+  background-color: #323232;
+  color: #fff;
+  cursor: pointer;
+}
+.comments__delete {
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  cursor: pointer;
 }/*# sourceMappingURL=bio.css.map */

@@ -76,7 +76,7 @@ axios
 		});
 	})
 	.catch((error) => {
-		console.log(`Unable to GET shows data`);
+		console.log(`Unable to GET shows data -----======>>>> ${error}`);
 	});
 
 // effects click
