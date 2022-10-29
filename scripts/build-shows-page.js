@@ -4,8 +4,6 @@ const URL = "https://project-1-api.herokuapp.com/showdates";
 //get parent element
 const cardList = document.querySelector(".shows__cards");
 
-// const card = document.querySelector(".shows__card");
-
 const produceElement = (tag, class1, class2) => {
 	const element = document.createElement(tag);
 	element.classList.add(class1, class2);

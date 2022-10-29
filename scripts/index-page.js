@@ -21,13 +21,12 @@ let likeSection;
 let svgImg;
 let likeButton;
 let deleteButton;
-
+let commentsAvatar;
 let commentData = [];
 const parentElement = document.querySelector(".comments");
 
 // create dynamic elements for comment section
 
-// // function for creating elements
 const createElements = () => {
 	commentsCard = document.createElement("div");
 	commentsImageHolder = document.createElement("div");
@@ -41,10 +40,8 @@ const createElements = () => {
 	likeSection = document.createElement("div");
 	likeButton = document.createElement("p");
 	deleteButton = document.createElement("p");
-	// commentsAvatar=document.createElement("img");
-	// commentsAvatar.src="https://picsum.photos/200";
 
-	// adding like functionality
+	commentsAvatar = document.createElement("p");
 };
 
 //assigningClass function
@@ -61,43 +58,33 @@ const assignClasses = () => {
 	likeSection.classList.add("comments__likesection");
 	likeButton.classList.add("comments__like");
 	deleteButton.classList.add("comments__delete");
+
+	commentsAvatar.classList.add("comments__avatar");
 };
 
-//test ==> generating random avatars
-
-// axios
-// .get('https://api.multiavatar.com/whatever.svg')
-// .then((res)=>{
-// 	 svgImg=res.data;
-// 	// commentsImage.appendChild(svgImg);
-// 	// console.log(commentsImage);
-// })
-// .catch((error=>{
-// 	console.log(`Unable to GET avatar --=-=-=-=> ${error}`);
-// }));
-
-// // appending childs function ====
+//  appending childs function ====
 
 const appendElements = () => {
-	// // append to parent container
+	//  append to parent container
 	parentElement.appendChild(commentsCard);
 	parentElement.appendChild(commentsDivider);
 
-	// // append childs to comment__card division
+	//  append childs to comment__card division
 	commentsCard.appendChild(commentsImageHolder);
+
 	commentsCard.appendChild(commentsBody);
 
-	// // append child to comment__image-holder
+	//  append child to comment__image-holder
 	commentsImageHolder.appendChild(commentsImage);
-	// commentsImage.appendChild(commentsAvatar);
-	// //append child to comments__body
+	commentsImage.appendChild(commentsAvatar);
+	// append child to comments__body
 	commentsBody.appendChild(commentsHeading);
 	commentsBody.appendChild(commentsMessage);
 	commentsBody.appendChild(likeSection);
 	likeSection.appendChild(likeButton);
 	likeSection.appendChild(deleteButton);
 
-	// //append child to heading
+	// append child to heading
 	commentsHeading.appendChild(commentsName);
 	commentsHeading.appendChild(commentsDate);
 };
@@ -108,21 +95,22 @@ const displayComment = (myObj) => {
 	assignClasses();
 	commentsName.innerText = myObj.name;
 	const longDate = myObj.timestamp;
-	// console.log(new Date(longDate));
+
 	commentsDate.innerText = getDate(longDate);
 	commentsMessage.innerText = myObj.comment;
-	likeButton.innerText = `Likes ${myObj.likes}`;
-	// console.log(`asdfasdf`, myObj);
-	likeButton.setAttribute("commentID", myObj.id);
+	//add avatar
+	var avatarId = `Random id ${Math.random * 1000} ${myObj.id}`;
+	var svgCode = multiavatar(avatarId);
+	console.log(svgCode);
+	commentsAvatar.innerHTML = svgCode;
+	console.log(commentsAvatar);
 
-	deleteButton.innerText = `✖️`;
-	deleteButton.setAttribute("commentID", myObj.id);
-
-	// likeSection.innerText="delete";
 	appendElements();
 
-	// taken from here
 	// like button
+	likeButton.innerText = `Likes ${myObj.likes}`;
+
+	likeButton.setAttribute("commentID", myObj.id);
 	likeButton.addEventListener("click", (e) => {
 		console.log(e.target.getAttribute("commentId"));
 
@@ -134,17 +122,15 @@ const displayComment = (myObj) => {
 				likeButton.innerText = `Likes ${res.data.likes}`;
 				parentElement.innerHTML = "";
 				fetchComments();
-				// updateLike();
-
-				console.log(res);
-
-				console.log(`like triggered`, res.data.likes);
 			})
 			.catch((e) => {
 				console.log(e);
 			});
 	});
+	//delete button
 
+	deleteButton.innerText = `✖️`;
+	deleteButton.setAttribute("commentID", myObj.id);
 	deleteButton.addEventListener("click", (event) => {
 		console.log(event.target);
 		axios
@@ -164,7 +150,6 @@ const displayComment = (myObj) => {
 const generateComments = (commentData) => {
 	for (let i = 0; i < commentData.length; i++) {
 		displayComment(commentData[i]);
-		// likeButton.addEventListener("click", (e) => alert("clicked"));
 	}
 };
 //fetching data using axios
@@ -172,13 +157,9 @@ function fetchComments() {
 	axios
 		.get(`${commentsURL}${API_KEY}`)
 		.then((response) => {
-			// console.log(response.data);
 			commentData = response.data.sort((a, b) => {
 				return b.timestamp - a.timestamp;
 			});
-			// console.log(`ookokoko`, commentData);
-
-			// console.log(commentData);
 
 			generateComments(commentData);
 		})
@@ -226,9 +207,3 @@ form.addEventListener("submit", (event) => {
 	//posting this in database
 	postComments(message);
 });
-
-// function updateLike() {
-// 	fetchComments();
-// }
-
-// updateLike();
