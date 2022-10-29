@@ -101,9 +101,8 @@ const displayComment = (myObj) => {
 	//add avatar
 	var avatarId = `Random id ${Math.random * 1000} ${myObj.id}`;
 	var svgCode = multiavatar(avatarId);
-	console.log(svgCode);
+
 	commentsAvatar.innerHTML = svgCode;
-	console.log(commentsAvatar);
 
 	appendElements();
 
@@ -112,8 +111,6 @@ const displayComment = (myObj) => {
 
 	likeButton.setAttribute("commentID", myObj.id);
 	likeButton.addEventListener("click", (e) => {
-		console.log(e.target.getAttribute("commentId"));
-
 		axios
 			.put(
 				`${commentsURL}/${e.target.getAttribute("commentId")}/like${API_KEY}`
